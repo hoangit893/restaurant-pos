@@ -1,6 +1,5 @@
 {
   "name": "restaurant-pos",
-   "homepage":"https://hoangit893.github.io/restaurant-pos",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
