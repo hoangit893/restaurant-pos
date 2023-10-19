@@ -82,15 +82,13 @@ function App() {
     },
   ]);
 
-  const [currentTable, setCurrentTable] = useState(null);
+  const [currentTable, setCurrentTable] = useState(1);
 
   const [menu, setMenu] = useState([]);
 
   const [path, setPath] = useState("");
 
-  const handleStateTable = (newState) => {
-    setTableList(newState);
-  };
+  localStorage.setItem("tableList", tableList);
 
   const handleSelectedMenu = (target) => {
     let labelChange = target.value;
@@ -221,7 +219,6 @@ function App() {
                     path={path}
                     menu={menu}
                     tableList={tableList}
-                    handleStateTable={handleStateTable}
                     currentTable={currentTable}
                     handleOrder={handleOrder}
                     handleCurrentTable={handleCurrentTable}

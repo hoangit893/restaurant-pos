@@ -38,7 +38,11 @@ function OrderDetail({
           <div>No table order selected</div>
         </>
       )}
-      {!(path === "payment" || tableList[currentTable].state) && (
+
+      {!(
+        (currentTable != null && path === "payment") ||
+        tableList[currentTable].state
+      ) && (
         <div
           style={{
             position: "relative",
@@ -52,7 +56,7 @@ function OrderDetail({
             onClick={handlePlaceOrder}></Button>
         </div>
       )}
-      {tableList[currentTable].state && (
+      {currentTable != null && tableList[currentTable].state && (
         <div
           style={{
             position: "relative",
