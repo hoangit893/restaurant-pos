@@ -1,0 +1,33 @@
+#left_container {
+  position: relative;
+  display: flex;
+  float: left;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  left: 12px;
+  width: 100%;
+  height: 100%;
+  border-right: solid 3px #eceded;
+  padding: 10vh 0;
+}
+
+.menu_btn {
+  width: 54px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10vh;
+  background-color: transparent;
+  border: transparent;
+  color: #a2774c;
+  scale: 1.25;
+}
+
+.menu_btn span {
+  font-size: 1rem;
+}
+
+.menu_btn :hover {
+  cursor: pointer;
+}

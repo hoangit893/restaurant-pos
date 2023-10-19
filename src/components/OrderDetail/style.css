@@ -1,0 +1,11 @@
+#order_details {
+  position: relative;
+  width: 95%;
+  padding: 0 10px;
+}
+
+#order_details .button_container {
+  position: sticky;
+  bottom: 100px;
+  right: 10px;
+}

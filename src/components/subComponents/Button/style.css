@@ -1,0 +1,13 @@
+.button_container {
+  color: #2c3832;
+  border: transparent;
+  border-radius: 0.625rem;
+  display: flex;
+  align-content: space-around;
+  margin: 6px;
+  z-index: 100;
+}
+
+.button_container :hover {
+  cursor: pointer;
+}
