@@ -44,12 +44,8 @@ function App() {
   const [tableList, setTableList] = useState([
     {
       id: "A1",
-      order: [
-        {
-          name: "Chickens",
-        },
-      ],
-      state: true,
+      order: [],
+      state: false,
       total: 0,
     },
     {
@@ -183,6 +179,23 @@ function App() {
       });
   }, []);
 
+  const submitOrder = () => {
+    let tempTable = [...tableList];
+    let temp = tempTable[currentTable];
+    temp.state = true;
+
+    setTableList(tempTable);
+    setPath("home");
+  };
+
+  const finishOrder = () => {
+    let tempTable = [...tableList];
+    let temp = tempTable[currentTable];
+    temp.state = false;
+    temp.order.map((food, index) => handleClearItem(index));
+    setTableList(tempTable);
+    setPath("home");
+  };
   return (
     <div className="App">
       <PathContext.Provider value={path}>
@@ -221,7 +234,9 @@ function App() {
                     tableList={tableList}
                     currentTable={currentTable}
                     handleClearItem={handleClearItem}
-                    handlePlaceOrder={handlePlaceOrder}></RightSide>
+                    handlePlaceOrder={handlePlaceOrder}
+                    submitOrder={submitOrder}
+                    finishOrder={finishOrder}></RightSide>
                 </Grid>
               </Grid>
             </TableContext.Provider>

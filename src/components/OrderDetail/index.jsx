@@ -9,6 +9,7 @@ function OrderDetail({
   currentTable,
   handleClearItem,
   handlePlaceOrder,
+  finishOrder,
   path,
 }) {
   return (
@@ -23,31 +24,47 @@ function OrderDetail({
         </div>
       </div>
 
-      {currentTable !== null ? (
-        !tableList[currentTable].state ? (
-          tableList[currentTable].order.map((food, index) => {
-            return (
-              <Item
-                key={food.id}
-                item={food}
-                handleClearItem={handleClearItem}></Item>
-            );
-          })
-        ) : (
-          <div> Empty Table</div>
-        )
+      {currentTable != null ? (
+        tableList[currentTable].order.map((food, index) => {
+          return (
+            <Item
+              key={food.id}
+              item={tableList[currentTable].order[index]}
+              handleClearItem={handleClearItem}></Item>
+          );
+        })
       ) : (
         <>
           <div>No table order selected</div>
         </>
       )}
-      {!(path === "payment") && (
-        <Button
-          b_height="3.625rem"
-          b_width="10.9375rem"
-          label="PLACE ORDER"
-          b_color="#B1CED4"
-          onClick={handlePlaceOrder}></Button>
+      {!(path === "payment" || tableList[currentTable].state) && (
+        <div
+          style={{
+            position: "relative",
+            left: "27.5%",
+          }}>
+          <Button
+            b_height="3.625rem"
+            b_width="10.9375rem"
+            label="PLACE ORDER"
+            b_color="#B1CED4"
+            onClick={handlePlaceOrder}></Button>
+        </div>
+      )}
+      {tableList[currentTable].state && (
+        <div
+          style={{
+            position: "relative",
+            left: "27.5%",
+          }}>
+          <Button
+            b_height="3.625rem"
+            b_width="10.9375rem"
+            label="FINISH ORDER"
+            b_color="#B1CED4"
+            onClick={finishOrder}></Button>
+        </div>
       )}
     </div>
   );

@@ -5,7 +5,14 @@ import Payment from "../Payment";
 
 import "./style.css";
 
-const RightSide = ({ path, tableList, handlePlaceOrder, handleClearItem }) => {
+const RightSide = ({
+  path,
+  tableList,
+  handlePlaceOrder,
+  handleClearItem,
+  submitOrder,
+  finishOrder,
+}) => {
   const currentTable = useContext(CurrentTableContext);
 
   return (
@@ -16,11 +23,15 @@ const RightSide = ({ path, tableList, handlePlaceOrder, handleClearItem }) => {
           tableList={tableList}
           currentTable={currentTable}
           handlePlaceOrder={handlePlaceOrder}
-          handleClearItem={handleClearItem}></OrderDetail>
+          handleClearItem={handleClearItem}
+          finishOrder={finishOrder}></OrderDetail>
       )}
 
       {path === "payment" && (
-        <Payment tableList={tableList} currentTable={currentTable}></Payment>
+        <Payment
+          tableList={tableList}
+          currentTable={currentTable}
+          submitOrder={submitOrder}></Payment>
       )}
     </>
   );
